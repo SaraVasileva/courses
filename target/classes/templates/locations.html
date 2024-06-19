@@ -1,0 +1,66 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Locations</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <h1>Locations</h1>-->
+<!--    <a href="/locations/add" class="btn btn-primary mb-3">Add Location</a>-->
+<!--    <table class="table">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Continent</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="location : ${locations}">-->
+<!--            <td th:text="${location.name}"></td>-->
+<!--            <td th:text="${location.continent}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Locations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Locations</h1>
+<!--    <a href="/locations/add" class="btn btn-primary mb-3">Add Location</a>-->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Continent</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="location : ${locations}">
+            <td th:text="${location.name}"></td>
+            <td th:text="${location.continent}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-V4kt8NqM0wuu4ePDS4N79nz3gqNSz37N+3lgjx34J37+a/4z8ZEZfBYC7gr1kHUC"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-b4v5z5bDI1YHFMx+3vb959u6yvb9zW1gV0Ii3KMKkyl2F+JLcrZ4BACJ4zN/kr4W"
+        crossorigin="anonymous"></script>
+</body>
+</html>
