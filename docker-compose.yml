@@ -1,0 +1,91 @@
+##version: '3.8'
+##services:
+##  lab01-app:
+##    image: lab01-app
+##    ports:
+##      - "8081:8080"
+##    depends_on:
+##      - postgres
+##  postgres:
+##    image: postgres
+##    ports:
+##      - "5432:5432"
+##    environment:
+##      POSTGRES_DB: course_db
+##      POSTGRES_USER: postgres
+##      POSTGRES_PASSWORD: vebprogramiranje
+####version: '3'
+####services:
+####  web-lab01-app-1:
+####    image: lab01-app
+####    ports:
+####      - "8081:8080"  # Map container port 8080 to host port 8081
+####    restart: always
+####    depends_on:
+####      - web-postgres-1
+####  web-postgres-1:
+####    image: postgres
+####    restart: always
+####    environment:
+####      POSTGRES_PASSWORD: vebprogramiranje
+#version: '3.8'
+#services:
+#  lab01-app:
+#    build: .
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      postgres:
+#        condition: service_healthy
+#    environment:
+#      POSTGRES_HOST: postgres
+#      POSTGRES_PORT: 5432
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: vebprogramiranje
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/course_db
+#      SPRING_DATASOURCE_USERNAME: postgres
+#      SPRING_DATASOURCE_PASSWORD: vebprogramiranje
+#
+#  postgres:
+#    image: postgres:latest
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_DB: course_db
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: vebprogramiranje
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready -U postgres"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+version: '3.8'
+
+services:
+  lab01-app:
+    image: lab01-img
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/course_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: vebprogramiranje
+    depends_on:
+      - postgres
+    networks:
+      - mynetwork
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: course_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: vebprogramiranje
+    ports:
+      - "5433:5432"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
