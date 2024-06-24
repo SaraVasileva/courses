@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: lab01-app
+data:
+  application.properties: |
+    server.port=8080
+    spring.datasource.url=jdbc:postgresql://courseapp-service:5432/course_db
+    spring.datasource.username=${DB_USERNAME}
+    spring.datasource.password=${DB_PASSWORD}
