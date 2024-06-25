@@ -1,6 +1,4 @@
-
 version: '3.8'
-
 services:
   lab01-app:
     image: lab01-img
@@ -39,6 +37,5 @@ services:
 networks:
   mynetwork:
     driver: bridge
-
 volumes:
   db_data:
